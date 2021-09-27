@@ -65,17 +65,17 @@ public final class ActivityTimeSaveHelper {
         final String formatStartTime = simpleDateFormat.format(new Date(startTime));
         final String formatEndTime = simpleDateFormat.format(new Date(endTime));
 
-        long mnt = 0;
-        long hours = 0;
-        final long seconds = duration / 1000;
-
-        if(seconds > 60)
-           mnt = seconds / 60;
-
-        if(mnt > 24)
-            hours = mnt / 24;
-
-        String formatDuration = hours +" : " + mnt +" : " + seconds;
+//        long mnt = 0;
+//        long hours = 0;
+//        final long seconds = duration / 1000;
+//
+//        if(seconds > 60)
+//           mnt = seconds / 60;
+//
+//        if(mnt > 24)
+//            hours = mnt / 24;
+//
+//        String formatDuration = hours +" : " + mnt +" : " + seconds;
 
 
         try {
@@ -90,7 +90,7 @@ public final class ActivityTimeSaveHelper {
             if(readValue.length() == 0){
                 readValue.append("activity,start_time,end_time,duration \n");
             }
-            readValue.append(activity +","+formatStartTime+","+formatEndTime+","+formatDuration+" \n");
+            readValue.append(activity +","+formatStartTime+","+formatEndTime+","+duration+" \n");
 
             FileWriter fileWriter = new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+"activity_data.csv");
             fileWriter.write(readValue.toString());
